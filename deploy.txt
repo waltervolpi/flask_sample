@@ -1,0 +1,4 @@
+kubectl apply -f flask_demo.yml
+
+kubectl delete services flask-service
+kubectl apply -f flask_demo_lb.yml

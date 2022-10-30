@@ -1,0 +1,29 @@
+--DOCKER
+docker image ls
+
+docker image rm flask_demo
+docker image build -f def_container.txt -t flask_demo .
+docker image ls
+docker run flask_demo
+
+
+
+--KUBERNETES
+kubectl get deployments
+kubectl get pods
+kubectl get services
+
+
+
+--- Per pulire e ripartire
+kubectl delete deployments flaskapi-walter
+kubectl delete -n default service flask-service
+kubectl delete deployments flask-mongo-service
+
+
+
+---
+kubectl port-forward --address 10.0.1.2 services/flask-mongo-service 5000:5000
+---
+test applicazione deploy attraverso API Gateway
+curl http://127.0.0.1:8000/dipendenti

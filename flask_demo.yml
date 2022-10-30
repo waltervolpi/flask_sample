@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-walter
+  labels:
+    app: flaskdemo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flaskdemo
+  template:
+    metadata:
+      labels:
+        app: flaskdemo
+    spec:
+      containers:
+        - name: flaskdemo
+          image: flask_demo:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
